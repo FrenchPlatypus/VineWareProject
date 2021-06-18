@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menus/Preload.unity
+    guid: 45f4fed65cd6b514093a2004e53da0f4
+  - enabled: 1
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: da10ce49dfeece9428ad3cd2fe598628
+  - enabled: 1
+    path: Assets/Scenes/Menus/IntroScene.unity
+    guid: 6f4a7f72f96881f478d4d3ef03ba160c
+  - enabled: 1
+    path: Assets/Scenes/StoryMode/StoryIntro_Joel.unity
+    guid: be74f6aa15eb1da4e8d505b671b34d17
+  - enabled: 1
+    path: Assets/Scenes/StoryMode/StoryIntro_Vinny.unity
+    guid: 4072fd3abe1899b4db81f47ff07a9876
+  - enabled: 1
+    path: Assets/Scenes/StoryMode/Story_Joel.unity
+    guid: ca290698d5cd9a24f86cbf0879c26a1b
+  m_configObjects: {}
