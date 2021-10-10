@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StoryModeManager : MonoBehaviour
 {
+    [Header("Minigame Variables")]
     public minigame bossMinigame;
     public minigame[] minigames;
     public bool minigameOn;
@@ -14,6 +15,7 @@ public class StoryModeManager : MonoBehaviour
     public statInfos infos;
     public Text levelText;
 
+    [Header("Timer Variables")]
     public GameObject TimerParent;
     public Transform timerFiller;
     public float timerMultiplicator;
@@ -24,9 +26,15 @@ public class StoryModeManager : MonoBehaviour
     public Transform minigameParent;
     public Animator canvasAnimator;
 
+    [Header("Score Variables")]
     public int[] highScores;
     public Text[] highScoreTexts;
     public string scene;
+
+    [Header ("Sound Variables")]
+    public AudioClip[] soundEffects;
+    public Transform soundParent;
+    public GameObject soundPrefab;
 
     public bool bossBattle;
 
@@ -54,6 +62,14 @@ public class StoryModeManager : MonoBehaviour
         }
     }
 
+    public void InstantiateSound(int sound)
+    {
+        GameObject soundInstance = Instantiate(soundPrefab, soundParent);
+        soundInstance.GetComponent<AudioSource>().clip = soundEffects[sound];
+
+        soundInstance.SetActive(true);
+    }
+
     public IEnumerator WaitForIntro()
     {       
         yield return new WaitForSeconds(9);
@@ -70,6 +86,7 @@ public class StoryModeManager : MonoBehaviour
 
         if (minigameWon == true)
         {
+            InstantiateSound(2);
             canvasAnimator.Play("WinMinigame");
             yield return new WaitForSeconds(0.1f);
             Destroy(minigameParent.GetChild(0).gameObject);
@@ -77,6 +94,7 @@ public class StoryModeManager : MonoBehaviour
         }
         else
         {
+            InstantiateSound(1);
             canvasAnimator.Play("LoseMinigame");
             yield return new WaitForSeconds(0.1f);
             Destroy(minigameParent.GetChild(0).gameObject);
@@ -120,6 +138,7 @@ public class StoryModeManager : MonoBehaviour
             }
 
             levelText.text = infos.level.ToString();
+            InstantiateSound(0);
             canvasAnimator.Play("NewMinigame");
             yield return new WaitForSeconds(2);
 
