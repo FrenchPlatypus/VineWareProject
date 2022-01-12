@@ -501,10 +501,6 @@ MonoBehaviour:
   beerAnim: {fileID: 1212804257095391000}
   hands: {fileID: 3608060476839520416}
   endParent: {fileID: 2489499962130282076}
-  spaceButton: {fileID: 0}
-  spaceSprites:
-  - {fileID: 21300000, guid: 6c9abe91c952f024abe412ce97a55b82, type: 3}
-  - {fileID: 21300000, guid: 6d82a4936b0676642b4e7bae491415df, type: 3}
   anim: 0
   clicked: 0
   win: 0
