@@ -17,7 +17,7 @@ public class BeamCollider : MonoBehaviour
     {
         Debug.Log("pouet");
         collision.GetComponent<Animator>().Play("GhostDeath");
-        collision.GetComponentInParent<Animator>().StopPlayback();
+        collision.transform.parent.GetComponent<Animator>().enabled = false;
         ghostScript.killCount++;
     }
 
@@ -25,11 +25,20 @@ public class BeamCollider : MonoBehaviour
     {
         for(int i = 0; i < ghosts.Length; i++)
         {
-            int xRand = Random.Range(-xLimit, xLimit);
-            int yRand = Random.Range(-yLimit, yLimit);
+            int[] xRand = new int[2];
+            int[] yRand = new int[2];
 
-            Debug.Log("set ghost to pos : " + xRand + " and " + yRand);
-            ghosts[i].GetComponent<LockUIItem>().SetPosition(new Vector2(xRand, yRand));
+            xRand[0] = Random.Range(-xLimit, 273);
+            xRand[1] = Random.Range(-273, xLimit);
+
+            yRand[0] = Random.Range(-yLimit, 195);
+            yRand[1] = Random.Range(-195, yLimit);
+
+            int xPos = xRand[Random.Range(0, 2)];
+            int yPos = yRand[Random.Range(0, 2)];  
+
+            Debug.Log("set ghost to pos : " + xPos + " and " + yPos);
+            ghosts[i].GetComponent<LockUIItem>().SetPosition(new Vector2(xPos, yPos));
         }
     }
 
@@ -40,25 +49,25 @@ public class BeamCollider : MonoBehaviour
             // Right
             if (Input.GetKey(KeyCode.RightArrow) && GetComponent<RectTransform>().localPosition.x > -xLimit)
             {
-                transform.Translate(Vector2.right * movingMultiplier);
+                transform.parent.Translate(Vector2.right * movingMultiplier);
             }
 
             // Left
             if (Input.GetKey(KeyCode.LeftArrow) && GetComponent<RectTransform>().localPosition.x < xLimit)
             {
-                transform.Translate(Vector2.right * -movingMultiplier);
+                transform.parent.Translate(Vector2.right * -movingMultiplier);
             }
 
             // Down
             if (Input.GetKey(KeyCode.DownArrow) && GetComponent<RectTransform>().localPosition.y > -yLimit)
             {
-                transform.Translate(Vector2.up * -movingMultiplier);
+                transform.parent.Translate(Vector2.up * -movingMultiplier);
             }
 
             // Up
             if (Input.GetKey(KeyCode.UpArrow) && GetComponent<RectTransform>().localPosition.y < yLimit)
             {
-                transform.Translate(Vector2.up * movingMultiplier);
+                transform.parent.Translate(Vector2.up * movingMultiplier);
             }
         }
     }
