@@ -61,10 +61,21 @@ public class DrMeow : MonoBehaviour
             }
             else
             {
-                carrotParent.GetChild(0).gameObject.SetActive(false);
-                carrotParent.GetChild(1).gameObject.SetActive(true);
-                fail = true;
+                Fail();
             }
+        }
+    }
+
+    public void Fail()
+    {
+        carrotParent.GetChild(0).gameObject.SetActive(false);
+        carrotParent.GetChild(1).gameObject.SetActive(true);
+
+        fail = true;
+
+        if (manager.minigameTimer > 1)
+        {
+            manager.minigameTimer = 1;
         }
     }
 
@@ -79,5 +90,10 @@ public class DrMeow : MonoBehaviour
 
         carrotParent.GetChild(0).gameObject.SetActive(false);
         carrotParent.GetChild(1).gameObject.SetActive(true);
+
+        if (manager.minigameTimer > 1)
+        {
+            manager.minigameTimer = 1;
+        }
     }
 }

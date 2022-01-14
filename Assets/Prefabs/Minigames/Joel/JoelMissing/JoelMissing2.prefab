@@ -2972,7 +2972,7 @@ MonoBehaviour:
   - {fileID: 6167020461177445086}
   - {fileID: 3082657987364928337}
   difficulty: 1
-  timer: 10
+  timer: 20
 --- !u!1 &5547000392252706656
 GameObject:
   m_ObjectHideFlags: 0
