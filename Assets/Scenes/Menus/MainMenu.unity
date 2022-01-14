@@ -1213,6 +1213,7 @@ GameObject:
   - component: {fileID: 822939169}
   - component: {fileID: 822939168}
   - component: {fileID: 822939166}
+  - component: {fileID: 822939167}
   m_Layer: 5
   m_Name: Story
   m_TagString: Untagged
@@ -1301,6 +1302,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &822939167
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822939164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f47cf6db4ac964c47874c66d72884b89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &822939168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,7 +1339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15c5ad9a8084f7d489838994fa6fd185, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 463c16ca5a555f644bb874cefe93a5d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3128,6 +3148,7 @@ GameObject:
   - component: {fileID: 2096167911}
   - component: {fileID: 2096167910}
   - component: {fileID: 2096167908}
+  - component: {fileID: 2096167909}
   m_Layer: 5
   m_Name: Arcade
   m_TagString: Untagged
@@ -3205,6 +3226,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &2096167909
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096167906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c4ffd0152be43e4ca544669e300d2b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2096167910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,7 +3263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9cd10dfe022121742b672cea3acad9e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6b85943866319b4db19fe1df9996347, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

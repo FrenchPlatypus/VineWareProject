@@ -59,7 +59,7 @@ public class DesertBus : MonoBehaviour
             }
             else
             {
-                Fail();
+              //  Fail();
             }
         }
     }

@@ -24,6 +24,10 @@ public class KillEm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager.minigameTimer = timer;
+        manager.maxTimer = timer;
+
         earthHP = difficulty + 1;
         changeEarthPos();
             
@@ -85,6 +89,7 @@ public class KillEm : MonoBehaviour
 
         if(earthHP <= 0)
         {
+            earthParent.GetChild(0).GetChild(0).gameObject.SetActive(true);
             manager.minigameWon = true;
         }
     }

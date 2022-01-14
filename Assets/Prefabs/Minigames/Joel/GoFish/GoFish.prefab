@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6699520536007821026}
-  - component: {fileID: 4035634453630614600}
+  - component: {fileID: 1682615548645400568}
   m_Layer: 5
   m_Name: IntroText
   m_TagString: Untagged
@@ -831,7 +831,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &4035634453630614600
+--- !u!95 &1682615548645400568
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ Animator:
   m_GameObject: {fileID: 7507905127943886376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7af945384a37f8e48a47312b34ec71c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc9d13650122d2a429abd70f27880a50, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

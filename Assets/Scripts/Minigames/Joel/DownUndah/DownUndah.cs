@@ -83,6 +83,7 @@ public class DownUndah : MonoBehaviour
         Destroy(pelicanInstance);
         yield return null;
     }
+
     public void Fail()
     {
         danCharacter.GetChild(0).gameObject.SetActive(true);

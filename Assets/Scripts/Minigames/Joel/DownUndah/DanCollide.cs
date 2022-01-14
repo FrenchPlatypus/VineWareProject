@@ -11,7 +11,7 @@ public class DanCollide : MonoBehaviour
         Debug.Log("Cranky !");
         if (minigameScript.fail == false)
         {
-            minigameScript.fail = true;
+            minigameScript.Fail();
             //transform.GetChild(0).gameObject.SetActive(true);
         }
     }

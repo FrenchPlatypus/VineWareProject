@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   difficulty: 2
-  timer: 0
+  timer: 10
   jumpTimer: 0
   racoonCharacter: {fileID: 9069975420743592403}
   obstacles: {fileID: 6289440538216907309}
