@@ -207,7 +207,7 @@ MonoBehaviour:
   skeletonPivot: {fileID: 8685333359259925783}
   guitarPivot: {fileID: 8615821082245876331}
   score: {fileID: 8337330691011501531}
-  multiplicator: 5
+  multiplicator: 7
 --- !u!1 &1315998154811124824
 GameObject:
   m_ObjectHideFlags: 0

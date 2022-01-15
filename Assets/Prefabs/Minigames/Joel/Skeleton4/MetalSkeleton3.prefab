@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4511845386069073670}
   - component: {fileID: 244277589857645611}
   m_Layer: 5
-  m_Name: MetalSkeleton1
+  m_Name: MetalSkeleton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   skeletonPivot: {fileID: 8685333359259925783}
   guitarPivot: {fileID: 8615821082245876331}
   score: {fileID: 8337330691011501531}
-  multiplicator: 4
+  multiplicator: 6
 --- !u!1 &1315998154811124824
 GameObject:
   m_ObjectHideFlags: 0

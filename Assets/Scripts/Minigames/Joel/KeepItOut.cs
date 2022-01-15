@@ -15,6 +15,7 @@ public class KeepItOut : MonoBehaviour
     public float multiplier;
 
     public bool fail;
+    public bool started;
 
     // Start is called before the first frame update
     void Start()
@@ -31,33 +32,39 @@ public class KeepItOut : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         manager.minigameWon = true;
+
+        yield return new WaitForSeconds(1f);
+        started = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(fail == false)
+        if (started == true)
         {
-            multiplier -= Time.deltaTime * (difficulty + 1) * 22;
-
-            if (Input.GetKeyDown(KeyCode.Space) && multiplier < 40)
+            if (fail == false)
             {
-                multiplier += 7;
+                multiplier -= Time.deltaTime * (difficulty + 1) * 22;
+
+                if (Input.GetKeyDown(KeyCode.Space) && multiplier < 40)
+                {
+                    multiplier += 7;
+                }
+
+                if (multiplier < -40)
+                {
+                    Fail();
+                }
+            }
+            else
+            {
+                multiplier -= Time.deltaTime * (difficulty + 1) * 1000;
             }
 
-            if (multiplier < -40)
-            {
-                Fail();
-            }
+            joel.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
+            ennemyParent.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
+            door.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
         }
-        else
-        {
-            multiplier -= Time.deltaTime * (difficulty + 1) * 1000;
-        }
-
-        joel.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
-        ennemyParent.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
-        door.GetComponent<RectTransform>().localPosition = new Vector3(multiplier * -1, 0, 0);
     }
 
     public void Fail()

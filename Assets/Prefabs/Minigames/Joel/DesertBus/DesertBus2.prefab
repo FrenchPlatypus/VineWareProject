@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  timer: 25
+  timer: 10
   difficulty: 1
   mario: {fileID: 4866889511230461225}
   simpleFlips: {fileID: 5644690212380011558}
