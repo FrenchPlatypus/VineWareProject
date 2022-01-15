@@ -5,7 +5,10 @@ using UnityEngine;
 public class AssembleCollider : MonoBehaviour
 {
     public Assemble assembleScript;
-    public float posX;
+    public float posY;
+
+    public float posXR;
+    public float posXL;
     public bool collisionOn;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -14,7 +17,7 @@ public class AssembleCollider : MonoBehaviour
         {
             Debug.Log("collide at y = " + transform.localPosition.y);
             collisionOn = true;
-            if (transform.localPosition.y < posX)
+            if (transform.localPosition.y < posY)
             {
                 assembleScript.fail = true;
                 Debug.Log("fail");
