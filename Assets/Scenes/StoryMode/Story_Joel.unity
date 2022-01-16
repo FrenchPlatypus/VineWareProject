@@ -370,7 +370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275315537}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe7efaa5b19b594b9140c0fcb6742a7, type: 3}
   m_Name: 
@@ -482,6 +482,11 @@ MonoBehaviour:
     - {fileID: 623157751537530649, guid: 73d4e8b462fba6b49bfe578937e7591b, type: 3}
     - {fileID: 623157751537530649, guid: 69147a7b01ec5bc45acc0bcc933b5252, type: 3}
     - {fileID: 623157751537530649, guid: 88232dd8f4dd95e4da3c75a0c5de5472, type: 3}
+  - name: BugSnax
+    stages:
+    - {fileID: 623157751537530649, guid: 4a55c398855612046aae52a4d71e7d2b, type: 3}
+    - {fileID: 623157751537530649, guid: 9fa9834ac4d2191459b62457195ca63a, type: 3}
+    - {fileID: 623157751537530649, guid: a9d03efe79214f540bb83cee3390e02e, type: 3}
   minigameOn: 0
   minigameWon: 0
   infos:
