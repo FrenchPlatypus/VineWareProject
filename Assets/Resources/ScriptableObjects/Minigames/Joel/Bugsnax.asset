@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c64d4efdd394f45b85725ab989e351, type: 3}
+  m_Name: Bugsnax
+  m_EditorClassIdentifier: 
+  title: 'Objective : KILL'
+  description: 'Destroy those filthy hooligans with your Double ShotGun.
+
+
+    Move
+    the shotgun by moving the mouse left and right.
+
+
+    Shoot by using the Left
+    Click.'
+  source: 
+  gamePrefabs:
+  - {fileID: 623157751537530649, guid: 4a55c398855612046aae52a4d71e7d2b, type: 3}
+  - {fileID: 623157751537530649, guid: 9fa9834ac4d2191459b62457195ca63a, type: 3}
+  - {fileID: 623157751537530649, guid: a9d03efe79214f540bb83cee3390e02e, type: 3}
+  visual: {fileID: 21300000, guid: a45738fe35b6d1d40ae799aefc1596bd, type: 3}

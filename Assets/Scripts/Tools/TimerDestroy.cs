@@ -8,11 +8,13 @@ public class TimerDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("DestroyObject", timer, timer);
+        StartCoroutine(DestroyObject());
     }
 
-    public void DestroyObject()
+    public IEnumerator DestroyObject()
     {
+        yield return new WaitForSeconds(timer);
+
         Destroy(this.gameObject);
     }
 }

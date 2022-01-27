@@ -49,7 +49,7 @@ public class Racoon : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
 
-            obstacles.Translate(Vector2.left * 20);
+            obstacles.Translate(Vector2.left * 5);
 
             if (Input.GetKeyDown(KeyCode.Space) && jumpTimer < 0)
             {

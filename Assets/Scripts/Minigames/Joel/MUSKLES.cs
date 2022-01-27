@@ -25,15 +25,21 @@ public class MUSKLES : MonoBehaviour
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
-        InvokeRepeating("UpdateProgress", 0, 0.08f);
+        InvokeRepeating("UpdateProgress", 0, 0.01f);
     }
 
-    void Update()
+    void UpdateProgress()
     {
         if (progress > 0 && progress < 100)
         {
             progress--;
 
+        }
+    }
+    void Update()
+    {
+        if (progress > 0 && progress < 100)
+        {
             float muscleRotation = (progress * 15) / 100;
             Debug.Log(muscleRotation);
             musclePivot.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, muscleRotation);

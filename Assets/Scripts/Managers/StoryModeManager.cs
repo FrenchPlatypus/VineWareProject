@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StoryModeManager : MonoBehaviour
 {
     [Header("Minigame Variables")]
+    public bool endlessMode;
     public minigame bossMinigame;
     public minigame[] minigames;
     public bool minigameOn;

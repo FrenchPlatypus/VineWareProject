@@ -73,14 +73,14 @@ public class BugSnax : MonoBehaviour
         {
             if (moveLeft)
             {
-                barry.Translate(Vector2.left * 8);
+                barry.Translate(Vector2.left * 2);
 
                 if (barry.localPosition.x <= -904)
                     moveLeft = false;
             }
             else
             {
-                barry.Translate(Vector2.right * 8);
+                barry.Translate(Vector2.right * 2);
 
                 if (barry.localPosition.x >= 904)
                     moveLeft = true;
@@ -93,11 +93,11 @@ public class BugSnax : MonoBehaviour
     {
         if (Input.GetAxis("Mouse X") <= -0.2f && bgMove.localPosition.x <= 920)
         {
-            bgMove.Translate(Vector2.right * 50);
+            bgMove.Translate(Vector2.right * 10);
         }
         if (Input.GetAxis("Mouse X") >= 0.2f && bgMove.localPosition.x >= -920)
         {
-            bgMove.Translate(Vector2.left * 50);
+            bgMove.Translate(Vector2.left * 10);
         }
 
         recharge--;

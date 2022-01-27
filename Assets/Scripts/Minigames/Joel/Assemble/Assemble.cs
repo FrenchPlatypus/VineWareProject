@@ -109,26 +109,26 @@ public class Assemble : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.RightArrow) && bottomControl.localPosition.x < 764f)
                 {
-                    bottomControl.Translate(Vector2.right * 10);
+                    bottomControl.Translate(Vector2.right * 1.5f);
                     if (step > 0)
                     {
-                        bottomControl.parent.parent.GetChild(1).GetChild(0).Translate(Vector2.right * 10);
+                        bottomControl.parent.parent.GetChild(1).GetChild(0).Translate(Vector2.right * 1.5f);
                         if (step > 1)
                         {
-                            bottomControl.parent.parent.GetChild(2).GetChild(0).Translate(Vector2.right * 10);
+                            bottomControl.parent.parent.GetChild(2).GetChild(0).Translate(Vector2.right * 1.5f);
                         }
                     }
                 }
 
                 if (Input.GetKey(KeyCode.LeftArrow) && bottomControl.localPosition.x > -641f)
                 {
-                    bottomControl.Translate(Vector2.left * 10);
+                    bottomControl.Translate(Vector2.left * 1.5f);
                     if (step > 0)
                     {
-                        bottomControl.parent.parent.GetChild(1).GetChild(0).Translate(Vector2.left * 10);
+                        bottomControl.parent.parent.GetChild(1).GetChild(0).Translate(Vector2.left * 1.5f);
                         if (step > 1)
                         {
-                            bottomControl.parent.parent.GetChild(2).GetChild(0).Translate(Vector2.left * 10);
+                            bottomControl.parent.parent.GetChild(2).GetChild(0).Translate(Vector2.left * 1.5f);
                         }
                     }
                 }

@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryMode/Story_Joel.unity
     guid: ca290698d5cd9a24f86cbf0879c26a1b
+  - enabled: 1
+    path: Assets/Scenes/Arcade/Arcade.unity
+    guid: a911227e49443c04b9eaadc5fe207e6f
+  - enabled: 1
+    path: Assets/Scenes/Arcade/GameScene.unity
+    guid: 2554167a82261dd4b96efaca31e147c4
   m_configObjects: {}

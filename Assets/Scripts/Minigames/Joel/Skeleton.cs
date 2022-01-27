@@ -28,7 +28,7 @@ public class Skeleton : MonoBehaviour
         skeletonPivot.speed = 0;
         guitarPivot.speed = 0;
 
-        //InvokeRepeating("UpdateProgress", 0, 0.2f);
+        InvokeRepeating("UpdateProgress", 0, 0.2f);
     }
 
     public void UpdateProgress()

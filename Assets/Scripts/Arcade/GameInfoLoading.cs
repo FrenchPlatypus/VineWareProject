@@ -13,13 +13,20 @@ public class GameInfoLoading : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameInfosTitle;
     [SerializeField] private TextMeshProUGUI gameInfosDescription;
 
+    public GameScriptableObject gameLoaded;
+
     // Load game infos from scriptableObject
     public void LoadGameInfos(GameScriptableObject gameSB)
     {
+        gameLoaded = gameSB;
+
         gameInfoSprite.sprite = gameSB.visual;
 
         gameInfosTitle.text = gameSB.title;
         gameInfosDescription.text = gameSB.description;
+
+        //Set game sb in the game manager
+        SaveManager.Instance.gameToLoad = gameSB;
     }
 
     // Reset panel infos to base values
@@ -29,5 +36,10 @@ public class GameInfoLoading : MonoBehaviour
 
         gameInfosTitle.text = "";
         gameInfosDescription.text = "";
+    }
+
+    public void LoadMinigame()
+    {
+
     }
 }
