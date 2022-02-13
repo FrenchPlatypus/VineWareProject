@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,15 +58,22 @@ public class ArcadeManager : MonoBehaviour
 
     public void GetHighScores()
     {
-        highScores = new int[6];
-        for (int i = 0; i < 6; i++)
+        // Get highscores from save manager
+        for(int i = 0; i < SaveManager.Instance._saveInfos.arcadeInfos.Count; i++)
         {
-            if (PlayerPrefs.HasKey("highscore" + scene + i))
+            if(SaveManager.Instance._saveInfos.arcadeInfos[i].title == SaveManager.Instance.gameToLoad.title)
             {
-                highScores[i] = PlayerPrefs.GetInt("highscore" + scene + i);
-                highScoreTexts[i].text = PlayerPrefs.GetInt("highscore" + scene + i).ToString();
+                highScores = SaveManager.Instance._saveInfos.arcadeInfos[i].scores.ToArray();
+                break;
             }
         }
+
+        // Check if the highscore is empty 
+        if(highScores == null || highScores.Length < 3)
+        {
+            highScores = new int[3];
+        }
+
     }
 
     public void InstantiateSound(int sound)
@@ -153,12 +161,25 @@ public class ArcadeManager : MonoBehaviour
 
     public void CheckForScore()
     {
+        // Check if we need to update the highscores
         for (int i = 0; i < highScores.Length; i++)
         {
             if (infos.level > highScores[i])
-            {
-                PlayerPrefs.SetInt("highscore" + scene + i, infos.level);
+            { 
+                highScores[i] = infos.level;   
+
                 highScoreTexts[i].text = infos.level.ToString();
+                break;
+            }
+        }
+
+        // Set highscores in save manager and save them
+        for (int i = 0; i < SaveManager.Instance._saveInfos.arcadeInfos.Count; i++)
+        {
+            if (SaveManager.Instance._saveInfos.arcadeInfos[i].title == SaveManager.Instance.gameToLoad.title)
+            {
+                SaveManager.Instance._saveInfos.arcadeInfos[i].scores = highScores.ToList();
+                SaveManager.Instance.SaveDatas();
                 break;
             }
         }
