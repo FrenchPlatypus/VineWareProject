@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VargDumpy : MonoBehaviour
 {
-    [SerializeField] private StoryModeManager manager;
+    [SerializeField] private GameInfoManager manager;
     [SerializeField] private float timer;
 
     [SerializeField] private int difficulty;
@@ -19,7 +19,7 @@ public class VargDumpy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
@@ -47,13 +47,18 @@ public class VargDumpy : MonoBehaviour
         {
             fren.SetParent(this.transform.parent);
             fren.GetComponent<Rigidbody2D>().simulated = true;
+
+            if (manager.minigameTimer > 1)
+            {
+                manager.minigameTimer = 1;
+            }
         }
-            pizzaAnim.Play("Fail");
+
+        pizzaAnim.enabled = false;
     }
 
     public void MinigameWon()
     {
-        pizzaAnim.enabled = false;
         manager.minigameWon = true;
 
         if (manager.minigameTimer > 1)

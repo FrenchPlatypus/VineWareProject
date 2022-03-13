@@ -360,8 +360,9 @@ GameObject:
   m_Component:
   - component: {fileID: 275315538}
   - component: {fileID: 275315539}
+  - component: {fileID: 275315540}
   m_Layer: 0
-  m_Name: StoryModeManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,11 +389,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275315537}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe7efaa5b19b594b9140c0fcb6742a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  endlessMode: 0
   bossMinigame:
     name: FreedomCheese
     stages:
@@ -506,7 +509,6 @@ MonoBehaviour:
     - {fileID: 623157751537530649, guid: 9fa9834ac4d2191459b62457195ca63a, type: 3}
     - {fileID: 623157751537530649, guid: a9d03efe79214f540bb83cee3390e02e, type: 3}
   minigameOn: 0
-  minigameWon: 0
   infos:
     difficulty: 0
     speed: 1
@@ -516,8 +518,6 @@ MonoBehaviour:
   TimerParent: {fileID: 684763949}
   timerFiller: {fileID: 1748013940}
   timerMultiplicator: 0
-  minigameTimer: 2
-  maxTimer: 0
   lifesNumber: {fileID: 1537058668}
   minigameParent: {fileID: 1191868088}
   canvasAnimator: {fileID: 732528663}
@@ -538,6 +538,21 @@ MonoBehaviour:
   soundPrefab: {fileID: 969888239438437049, guid: 9b7144cf97c99cb43bdb4b43427a032c,
     type: 3}
   bossBattle: 0
+--- !u!114 &275315540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275315537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3724741918e60e14e9b442ebba3af7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameTimer: 0
+  maxTimer: 0
+  minigameWon: 0
 --- !u!1 &289743709
 GameObject:
   m_ObjectHideFlags: 0

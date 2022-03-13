@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrMeow : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
     public float timer;
 
     public int difficulty;
@@ -20,7 +20,7 @@ public class DrMeow : MonoBehaviour
 
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

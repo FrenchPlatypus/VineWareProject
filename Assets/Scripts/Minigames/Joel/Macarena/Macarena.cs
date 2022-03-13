@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Macarena : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
     public float timer;
 
     public Transform woman;
@@ -20,7 +20,7 @@ public class Macarena : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
@@ -92,7 +92,7 @@ public class Macarena : MonoBehaviour
 
         while (instance != null)
         {
-            instance.transform.Translate(Vector2.left * 5f * side);
+            instance.transform.Translate(Vector2.left * 2f * side);
             yield return null;
         }
      

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DoTheMario : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public float timer;
 
@@ -29,7 +29,7 @@ public class DoTheMario : MonoBehaviour
     void Start()
     {
         marioModel.GetComponent<Animator>().enabled = false;
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

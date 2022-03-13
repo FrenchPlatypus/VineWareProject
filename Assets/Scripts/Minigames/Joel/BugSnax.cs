@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BugSnax : MonoBehaviour
 {
-    [SerializeField] private StoryModeManager manager;
+    [SerializeField] private GameInfoManager manager;
 
     [SerializeField] private int difficulty;
     [SerializeField] private float timer;
@@ -33,7 +33,7 @@ public class BugSnax : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

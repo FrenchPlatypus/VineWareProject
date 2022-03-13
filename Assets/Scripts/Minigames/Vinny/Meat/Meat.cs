@@ -5,7 +5,7 @@ using UnityEngine;
 public class Meat : MonoBehaviour
 {
     public float timer;
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public Transform binny;
     public Transform meatMonster;
@@ -24,7 +24,7 @@ public class Meat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

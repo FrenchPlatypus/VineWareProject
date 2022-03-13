@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class StoryModeManager : MonoBehaviour
 {
+    [SerializeField] private GameInfoManager gameManager;
+
     [Header("Minigame Variables")]
     public bool endlessMode;
     public minigame bossMinigame;
     public minigame[] minigames;
     public bool minigameOn;
-    public bool minigameWon;
 
     public statInfos infos;
     public Text levelText;
@@ -20,8 +21,6 @@ public class StoryModeManager : MonoBehaviour
     public GameObject TimerParent;
     public Transform timerFiller;
     public float timerMultiplicator;
-    public float minigameTimer;
-    public float maxTimer;
 
     public Text lifesNumber;
     public Transform minigameParent;
@@ -41,6 +40,8 @@ public class StoryModeManager : MonoBehaviour
 
     public void Start()
     {
+       gameManager = GetComponent<GameInfoManager>();
+
         GetHighScores();
 
         infos.difficulty = 0;
@@ -85,7 +86,7 @@ public class StoryModeManager : MonoBehaviour
     {
         minigameOn = false;
 
-        if (minigameWon == true)
+        if (gameManager.minigameWon == true)
         {
             InstantiateSound(2);
             canvasAnimator.Play("WinMinigame");
@@ -113,7 +114,7 @@ public class StoryModeManager : MonoBehaviour
         }
         else
         {
-            if (bossBattle == false || minigameWon == true)
+            if (bossBattle == false || gameManager.minigameWon == true)
             {
                 infos.level++;
             }
@@ -149,7 +150,7 @@ public class StoryModeManager : MonoBehaviour
                 canvasAnimator.Play("BossStage");
                 bossBattle = true;
                 yield return new WaitForSeconds(3);
-                minigameTimer = 1;
+                gameManager.minigameTimer = 1;
 
                 StartCoroutine(LoadBossMinigame());
             }
@@ -185,7 +186,7 @@ public class StoryModeManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
         minigameOn = true;
-        minigameWon = false;
+        gameManager.minigameWon = false;
     }
 
     public IEnumerator LoadNewMinigame()
@@ -201,24 +202,24 @@ public class StoryModeManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         timerFiller.localPosition = new Vector2(1682, 0);
-        timerMultiplicator = 1682 / maxTimer;
+        timerMultiplicator = 1682 / gameManager.maxTimer;
 
         TimerParent.SetActive(true);
 
         minigameOn = true;
-        minigameWon = false;
+        gameManager.minigameWon = false;
     }
 
     private void Update()
     {
         if(minigameOn == true)
         {
-            if (minigameTimer > 0)
+            if (gameManager.minigameTimer > 0)
             {
                 if (bossBattle == false)
                 {
-                    minigameTimer -= Time.deltaTime;
-                    float fillAmount = minigameTimer * timerMultiplicator;
+                    gameManager.minigameTimer -= Time.deltaTime;
+                    float fillAmount = gameManager.minigameTimer * timerMultiplicator;
                     timerFiller.localPosition = new Vector2(fillAmount , 0);
                 }
             }
@@ -230,9 +231,9 @@ public class StoryModeManager : MonoBehaviour
             }
         }
 
-        if(minigameTimer > 0)
+        if (gameManager.minigameTimer > 0)
         {
-            float timeText = Mathf.Round(minigameTimer * 1f);
+            float timeText = Mathf.Round(gameManager.minigameTimer * 1f);
             TimerParent.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = timeText.ToString(); 
         }
     }

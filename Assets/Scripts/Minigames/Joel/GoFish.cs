@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GoFish : MonoBehaviour
 {
-    [SerializeField] private StoryModeManager manager;
+    [SerializeField] private GameInfoManager manager;
     [SerializeField] private float timer;
 
     [SerializeField] private Transform fishParent;
@@ -15,7 +15,7 @@ public class GoFish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
     }

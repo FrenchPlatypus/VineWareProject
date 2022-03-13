@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Freedom : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public bool win;
 
@@ -26,7 +26,7 @@ public class Freedom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = 1;
         manager.maxTimer = 1;
 

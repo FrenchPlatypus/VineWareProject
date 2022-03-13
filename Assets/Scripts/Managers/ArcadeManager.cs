@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class ArcadeManager : MonoBehaviour
 {
+    [SerializeField] private GameInfoManager gameManager;
+
     [Header("Minigame Variables")]
     public bool endlessMode;
     public List<minigame> minigames;
     public bool minigameOn;
-    public bool minigameWon;
 
     public statInfos infos;
     public Text levelText;
@@ -20,8 +21,6 @@ public class ArcadeManager : MonoBehaviour
     public GameObject TimerParent;
     public Transform timerFiller;
     public float timerMultiplicator;
-    public float minigameTimer;
-    public float maxTimer;
 
     public Text lifesNumber;
     public Transform minigameParent;
@@ -41,14 +40,19 @@ public class ArcadeManager : MonoBehaviour
 
     public void Start()
     {
+        gameManager = GetComponent<GameInfoManager>();
+
         GetHighScores();
 
         infos.difficulty = 0;
         infos.level = 1;
+        infos.lives = 4;
 
         levelText.text = infos.level.ToString();
 
         minigame arcadeGames = new minigame();
+        arcadeGames.stages = new GameObject[3];
+
         arcadeGames.stages = SaveManager.Instance.gameToLoad.gamePrefabs;
 
         minigames.Add(arcadeGames);
@@ -58,22 +62,21 @@ public class ArcadeManager : MonoBehaviour
 
     public void GetHighScores()
     {
+        highScores = new int[3];
+
         // Get highscores from save manager
-        for(int i = 0; i < SaveManager.Instance._saveInfos.arcadeInfos.Count; i++)
+        for (int i = 0; i < SaveManager.Instance._saveInfos.arcadeInfos.Count; i++)
         {
             if(SaveManager.Instance._saveInfos.arcadeInfos[i].title == SaveManager.Instance.gameToLoad.title)
             {
-                highScores = SaveManager.Instance._saveInfos.arcadeInfos[i].scores.ToArray();
+                if(SaveManager.Instance._saveInfos.arcadeInfos[i].scores != null && SaveManager.Instance._saveInfos.arcadeInfos[i].scores.Count == 3)
+                    highScores = SaveManager.Instance._saveInfos.arcadeInfos[i].scores.ToArray();           
+                else
+                    highScores = new int[3];
+
                 break;
             }
         }
-
-        // Check if the highscore is empty 
-        if(highScores == null || highScores.Length < 3)
-        {
-            highScores = new int[3];
-        }
-
     }
 
     public void InstantiateSound(int sound)
@@ -90,7 +93,7 @@ public class ArcadeManager : MonoBehaviour
         Debug.Log("Intro finished");
 
         canvasAnimator.Play("NewMinigame");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         StartCoroutine(LoadNewMinigame());
     }
 
@@ -98,7 +101,7 @@ public class ArcadeManager : MonoBehaviour
     {
         minigameOn = false;
 
-        if (minigameWon == true)
+        if (gameManager.minigameWon == true)
         {
             InstantiateSound(2);
             canvasAnimator.Play("WinMinigame");
@@ -126,7 +129,7 @@ public class ArcadeManager : MonoBehaviour
         }
         else
         {
-            if (bossBattle == false || minigameWon == true)
+            if (bossBattle == false || gameManager.minigameWon == true)
             {
                 infos.level++;
             }
@@ -198,24 +201,24 @@ public class ArcadeManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         timerFiller.localPosition = new Vector2(1682, 0);
-        timerMultiplicator = 1682 / maxTimer;
+        timerMultiplicator = 1682 / gameManager.maxTimer;
 
         TimerParent.SetActive(true);
 
         minigameOn = true;
-        minigameWon = false;
+        gameManager.minigameWon = false;
     }
 
     private void Update()
     {
         if (minigameOn == true)
         {
-            if (minigameTimer > 0)
+            if (gameManager.minigameTimer > 0)
             {
                 if (bossBattle == false)
                 {
-                    minigameTimer -= Time.deltaTime;
-                    float fillAmount = minigameTimer * timerMultiplicator;
+                    gameManager.minigameTimer -= Time.deltaTime;
+                    float fillAmount = gameManager.minigameTimer * timerMultiplicator;
                     timerFiller.localPosition = new Vector2(fillAmount, 0);
                 }
             }
@@ -227,9 +230,9 @@ public class ArcadeManager : MonoBehaviour
             }
         }
 
-        if (minigameTimer > 0)
+        if (gameManager.minigameTimer > 0)
         {
-            float timeText = Mathf.Round(minigameTimer * 1f);
+            float timeText = Mathf.Round(gameManager.minigameTimer * 1f);
             TimerParent.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = timeText.ToString();
         }
     }

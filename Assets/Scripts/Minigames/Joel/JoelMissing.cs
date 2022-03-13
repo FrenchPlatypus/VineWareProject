@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class JoelMissing : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public GameObject[] questionSets;
 
@@ -16,7 +16,7 @@ public class JoelMissing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

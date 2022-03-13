@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BBQShoes : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public float timer;
     public float progress;
@@ -30,7 +30,7 @@ public class BBQShoes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 

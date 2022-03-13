@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Racoon : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
 
     public int difficulty;
 
@@ -21,7 +21,7 @@ public class Racoon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
@@ -49,7 +49,7 @@ public class Racoon : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
 
-            obstacles.Translate(Vector2.left * 5);
+            obstacles.Translate(Vector2.left * 2);
 
             if (Input.GetKeyDown(KeyCode.Space) && jumpTimer < 0)
             {

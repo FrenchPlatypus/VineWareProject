@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillEm : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
     public int difficulty;
     public float timer;
 
@@ -24,7 +24,7 @@ public class KillEm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
@@ -39,12 +39,15 @@ public class KillEm : MonoBehaviour
 
     public void changeEarthPos()
     {
-        float randX = Random.Range(162, 830);
-        float randY = Random.Range(-395, 132);
+        if(win == false) 
+        {
+            float randX = Random.Range(162, 830);
+            float randY = Random.Range(-395, 132);
 
-        earthParent.GetComponent<RectTransform>().anchoredPosition = new Vector2(randX, randY);
+            earthParent.GetComponent<RectTransform>().anchoredPosition = new Vector2(randX, randY);
 
-        Instantiate(poofPrefab, earthParent);
+            Instantiate(poofPrefab, earthParent);
+        }
     }
 
     // Update is called once per frame
@@ -89,7 +92,8 @@ public class KillEm : MonoBehaviour
 
         if(earthHP <= 0)
         {
-            earthParent.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            earthParent.GetChild(0).gameObject.SetActive(false);
+            earthParent.GetChild(1).gameObject.SetActive(true);
             manager.minigameWon = true;
         }
     }

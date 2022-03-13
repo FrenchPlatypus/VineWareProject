@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DownUndah : MonoBehaviour
 {
-    public StoryModeManager manager;
+    public GameInfoManager manager;
     public int difficulty;
 
     public float timer;
@@ -24,7 +24,7 @@ public class DownUndah : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("StoryModeManager").GetComponent<StoryModeManager>();
+        manager = GameObject.Find("GameManager").GetComponent<GameInfoManager>();
         manager.minigameTimer = timer;
         manager.maxTimer = timer;
 
