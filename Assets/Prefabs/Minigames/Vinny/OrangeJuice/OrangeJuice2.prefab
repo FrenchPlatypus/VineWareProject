@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4050245670129953692}
   - component: {fileID: 1787022444468343152}
   m_Layer: 5
-  m_Name: OrangeJuice
+  m_Name: OrangeJuice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,10 +169,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  timer: 0
-  difficulty: 0
+  timer: 10
+  difficulty: 1
+  awake: 0
+  drawing: 0
   win: 0
   fail: 0
+  gameState: 0
   minigameAnim: {fileID: 4050245670129953692}
   faces:
   - {fileID: 5716221332792348872}
@@ -196,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4252981581686845190
 RectTransform:
   m_ObjectHideFlags: 0
