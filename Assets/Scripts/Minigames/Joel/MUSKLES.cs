@@ -32,7 +32,7 @@ public class MUSKLES : MonoBehaviour
     {
         if (progress > 0 && progress < 100)
         {
-            progress--;
+            progress -= 0.8f ;
 
         }
     }

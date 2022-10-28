@@ -51,21 +51,22 @@ public class Racoon : MonoBehaviour
 
             obstacles.Translate(Vector2.left * 2);
 
-            if (Input.GetKeyDown(KeyCode.Space) && jumpTimer < 0)
+            if (Input.GetKeyDown(KeyCode.Space) && jumpTimer < 0 && !crouched)
             {
                 jumpTimer = 1.3f;
                 racoonCharacter.GetComponent<Animator>().Play("RacoonJump");
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) && jumpTimer < 0 && !crouched)
             {
                 crouched = true;
                 racoonCharacter.GetComponent<Animator>().Play("RacoonCrouch");
             }
 
-            if (Input.GetKeyUp(KeyCode.DownArrow))
-            {   
-                crouched = true;
+            if (Input.GetKeyUp(KeyCode.DownArrow) && crouched)
+            {
+                jumpTimer = 0.1f;
+                crouched = false;
                 racoonCharacter.GetComponent<Animator>().Play("RacoonUp");
             }
         }

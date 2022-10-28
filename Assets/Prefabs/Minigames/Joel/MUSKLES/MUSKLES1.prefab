@@ -269,7 +269,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7028517020587954ca7da78e73a0fb9a, type: 3}
   - {fileID: 21300000, guid: 6415396324cfbb84a9df934861fceaa8, type: 3}
   - {fileID: 21300000, guid: 6415396324cfbb84a9df934861fceaa8, type: 3}
-  muscleMultiplicator: 22
+  muscleMultiplicator: 25
 --- !u!95 &4753893230606790145
 Animator:
   serializedVersion: 3

@@ -52,7 +52,7 @@ public class Macarena : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space) && woman.localPosition.y < 400)
             {
-                woman.Translate(Vector2.up * 7f);
+                woman.Translate(Vector2.up * 3f);
                 woman.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
 
@@ -92,7 +92,7 @@ public class Macarena : MonoBehaviour
 
         while (instance != null)
         {
-            instance.transform.Translate(Vector2.left * 2f * side);
+            instance.transform.Translate(Vector2.left * side);
             yield return null;
         }
      

@@ -41,7 +41,7 @@ public class Skeleton : MonoBehaviour
     {
         if (progress > 0 && progress < 100)
         {
-            progress--;
+            progress -= 0.7f;
             score.fillAmount = progress/100;
             skeletonPivot.speed = (progress / 20);
             guitarPivot.speed = (progress / 20);
